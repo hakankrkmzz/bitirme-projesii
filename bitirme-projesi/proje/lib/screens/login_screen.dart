@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:proje/screens/HomePage/bottom_navigation_bar.dart';
 import 'package:proje/screens/signup_screen.dart';
-import 'package:proje/service/auth_service.dart';
 import 'package:proje/utilities/constants.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
@@ -12,11 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMe = false;
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  AuthService _authService = AuthService();
+  
 
   Widget _buildPhoneNmbr() {
     return Column(
@@ -112,19 +107,6 @@ class _LoginScreenState extends State<LoginScreen> {
       height: 20.0,
       child: Row(
         children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.black),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.white,
-              activeColor: Colors.black,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value!;
-                });
-              },
-            ),
-          ),
           Text(
             'Beni hatırla',
             style: kLabelStyle,
@@ -142,12 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          _authService
-              .signIn(_emailController.text, _passwordController.text)
-              .then((value) {
-            return Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Anasayfa()));
-          });
+        
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(

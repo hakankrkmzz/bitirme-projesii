@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
 import 'package:proje/Widget/bezierContainer.dart';
 import 'package:proje/screens/otp_screen';
-import 'package:proje/service/auth_service.dart';
 import 'package:proje/utilities/constants.dart';
 
 import 'login_screen.dart';
@@ -18,11 +17,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
+  
 
-  AuthService _authService = AuthService();
+
 
   Widget _backButton() {
     return InkWell(
@@ -49,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        TextField(controller: _phoneNumberController),
+        
         Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           'Telefon numarası',
@@ -92,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TextField(
-          controller: _passwordController,
+        
         ),
         Padding(padding: EdgeInsets.only(top: 20)),
         Text(
@@ -131,7 +128,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        TextField(controller: _nameController),
+       
         Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           'Kullanıcı adı',
@@ -168,13 +165,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
-        _authService
-            .createPerson(_nameController.text, _phoneNumberController.text,
-                _passwordController.text)
-            .then((value) {
-          return Navigator.push(
-              context, MaterialPageRoute(builder: (context) => OtpPage()));
-        });
+     
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
