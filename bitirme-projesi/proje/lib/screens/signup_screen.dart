@@ -17,10 +17,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  
-
-
-
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -46,7 +42,6 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        
         Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           'Telefon numarası',
@@ -88,10 +83,8 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        TextField(
-        
-        ),
-        Padding(padding: EdgeInsets.only(top: 20)),
+        TextField(),
+        Padding(padding: EdgeInsets.zero),
         Text(
           'Şifre',
           style: kLabelStyle,
@@ -128,7 +121,6 @@ class _SignUpPageState extends State<SignUpPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-       
         Padding(padding: EdgeInsets.only(top: 20)),
         Text(
           'Kullanıcı adı',
@@ -165,7 +157,8 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
-     
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => OtpPage()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
